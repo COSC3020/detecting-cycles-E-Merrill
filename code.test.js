@@ -56,3 +56,14 @@ var tree = [
 // Testing where one node has mutliple children, but no cycles exist (similar a tree, but not quite in this case)
 
 assert(JSON.stringify(hasCycle(tree)) == JSON.stringify(false));
+
+var longCycle = [
+    [0,1,1,0],
+    [0,0,1,1],
+    [0,0,0,1],
+    [1,0,0,0]
+];
+
+// Testing the case of a long cycle, where mutiple nodes make up the cycle (i.e. 1->2->3->1)
+
+assert(JSON.stringify(hasCycle(longCycle)) == JSON.stringify(true));
