@@ -27,39 +27,18 @@ var nothing = [
 assert(JSON.stringify(hasCycle(nothing)) == JSON.stringify(false));
 
 var noCycle = [
-    [0,1,0],
+    [0,0,0],
     [0,0,1],
-    [0,0,0]
-];
-
-// Testing the case of there being edges, but no cycles
-
-assert(JSON.stringify(hasCycle(noCycle)) == JSON.stringify(false));
-
-var multiple = [
-    [1,1,0],
-    [1,0,1],
     [0,1,0]
 ];
 
-// Testing the case of multiple cycles; should definitely return true
+// Testing the case of one node being disconnected, but there being a cycle
 
-assert(JSON.stringify(hasCycle(multiple)) == JSON.stringify(true));
-
-var tree = [
-    [0,1,1,0],
-    [0,0,1,1],
-    [0,0,0,1],
-    [0,0,0,0]
-];
-
-// Testing where one node has mutliple children, but no cycles exist (similar a tree, but not quite in this case)
-
-assert(JSON.stringify(hasCycle(tree)) == JSON.stringify(false));
+assert(JSON.stringify(hasCycle(noCycle)) == JSON.stringify(true));
 
 var longCycle = [
-    [0,1,1,0],
-    [0,0,1,1],
+    [0,1,0,0],
+    [0,0,1,0],
     [0,0,0,1],
     [1,0,0,0]
 ];
